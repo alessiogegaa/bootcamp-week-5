@@ -11,16 +11,19 @@ const useFormSubmission = () => {
     company: '',
     companyCode: '',
   });
-
+  const [formStep, setFormStep, removeStep] = useLocalStorage('formStep', {
+    formStep: '',
+  })
   useEffect(() => {
-    const savedStep = localStorage.getItem('formStep');
-    if (savedStep) {
-      setStep(JSON.parse(savedStep));
+    //const savedStep = localStorage.getItem('formStep');
+    if (formStep) {
+      setStep(JSON.parse(formStep));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('formStep', JSON.stringify(step));
+    // localStorage.setItem('formStep', JSON.stringify(step));
+    setFormStep(step);
   }, [step]);
 
   const nextStep = () => setStep((prevStep) => prevStep + 1);
@@ -46,7 +49,7 @@ const useFormSubmission = () => {
       companyCode: '',
     });
     setStep(1);
-    localStorage.removeItem('formStep');
+    removeStep('formStep');
   };
 
   return {

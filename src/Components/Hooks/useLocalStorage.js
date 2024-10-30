@@ -23,8 +23,10 @@ const useLocalStorage = (key, initialValue) => {
      }
    },[key,storedValue])
    
-
-   return [storedValue, setStoredValue];
+   function removeValue (key) {
+     localStorage.removeItem(key);
+   }
+   return [storedValue, setStoredValue ,removeValue];
 }
 
 export default useLocalStorage
