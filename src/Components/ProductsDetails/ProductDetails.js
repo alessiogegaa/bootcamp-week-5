@@ -1,10 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import "./ProductDetails.css";
+import { useCart } from "../CartContext/CartContext";
 
 const ProductDetails = ({ products }) => {
   const { id } = useParams();
-  const product = products.find(item => item.id === parseInt(id));
+  const product = products.find((item) => item.id === parseInt(id));
+  const { addToCart } = useCart();
 
   if (!product) return <p>Product not found</p>;
 
@@ -13,7 +15,7 @@ const ProductDetails = ({ products }) => {
   return (
     <div className="mainContainer">
       <div className="leftContainer">
-        <img src={imageUrl} alt={title}/>
+        <img src={imageUrl} alt={title} />
       </div>
       <div className="rightContainer">
         <div className="product-description">
@@ -23,9 +25,9 @@ const ProductDetails = ({ products }) => {
         </div>
         <div className="product-price">
           <span>{price}</span>
-          <a href="#" className="cart-btn">
+          <button className="cart-btn" onClick={() => addToCart(product.id)}>
             Add to cart
-          </a>
+          </button>
         </div>
       </div>
     </div>

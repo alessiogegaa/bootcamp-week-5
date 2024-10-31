@@ -1,16 +1,15 @@
-import React from 'react';
-import './CartSummary.css';
+import React from "react";
+import "./CartSummary.css";
 
 const CartSummary = ({ cartItems }) => {
-  
-  const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+  const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
   const cartMap = {};
-  storedCart.forEach(item => {
-    cartMap[item.id] = item.quantity; 
+  storedCart.forEach((item) => {
+    cartMap[item.id] = item.quantity;
   });
 
-  const filteredCartItems = cartItems.filter(item => cartMap[item.id] > 0);
+  const filteredCartItems = cartItems.filter((item) => cartMap[item.id] > 0);
 
   return (
     <div className="cartSummaryContainer">
@@ -18,13 +17,17 @@ const CartSummary = ({ cartItems }) => {
       <div className="cartItemsContainer">
         {filteredCartItems.length > 0 ? (
           filteredCartItems.map((item) => {
-            const quantity = cartMap[item.id] || 0; 
+            const quantity = cartMap[item.id] || 0;
             return (
               <div className="cartItem" key={item.id}>
-                <img src={item.imageUrl} alt={item.title} className="cartItemImage" />
+                <img
+                  src={item.imageUrl}
+                  alt={item.title}
+                  className="cartItemImage"
+                />
                 <div className="cartItemDetails">
                   <h3>{item.title}</h3>
-                  <p>{item.price} $</p>
+                  <p>{item.price} </p>
                   <div className="cartItemQuantity">
                     <label>Quantity:</label>
                     <input type="number" min="1" value={quantity} readOnly />
@@ -38,8 +41,25 @@ const CartSummary = ({ cartItems }) => {
         )}
       </div>
       <div className="cartSummaryFooter">
-        <h3>Total: {filteredCartItems.reduce((total, item) => total + (item.price * (cartMap[item.id] || 0)), 0)} $</h3>
-        <button className="checkoutButton">Proceed to Checkout</button>
+        <h3>
+          Total:{" "}
+          {filteredCartItems.reduce(
+            (total, item) =>
+              total +
+              parseFloat(item.price) * (parseInt(cartMap[item.id]) || 0),
+            0
+          )}{" "}
+          $
+        </h3>
+        <button
+          className="checkoutButton"
+          onClick={() => {
+            alert("Thank You for your purchase");
+            localStorage.clear();
+          }}
+        >
+          Proceed to Checkout
+        </button>
       </div>
     </div>
   );

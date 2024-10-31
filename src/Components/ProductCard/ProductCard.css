@@ -20,6 +20,10 @@
   
   .product-info {
     margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .product-title {
@@ -27,12 +31,14 @@
     font-weight: bold;
     color: #333;
     margin: 8px 0;
+    white-space: normal;
   }
   
   .product-price {
     font-size: 14px;
     color: #666;
     margin: 8px 0;
+    text-align: center;
   }
   
   .quantity-controls {
