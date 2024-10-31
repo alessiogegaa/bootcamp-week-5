@@ -1,32 +1,50 @@
-import React from 'react';
-import Step1 from './Components/Step1/Step1';
-import Step2 from './Components/Step2/Step2';
-import Step3 from './Components/Step3/Step3';
-import useFormSubmission from './Components/Hooks/useFormSubmission';
+import React from "react";
+import Nav from "./Components/Nav/Nav";
+import Products from "./Components/Products/Products";
 
 const App = () => {
-  const {
-    step,
-    formData,
-    nextStep,
-    prevStep,
-    handleChange,
-    handleSubmit,
-  } = useFormSubmission();
-
+  const sampleProducts = [
+    {
+      id: 1,
+      title: 'Product 1',
+      description: 'A great product',
+      imageUrl: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+      price: '$29.99',
+    },
+    {
+      id: 2,
+      title: 'Product 2',
+      description: 'Another awesome product',
+      imageUrl: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+      price: '$39.99',
+    },
+    {
+      id: 3,
+      title: 'Product 2',
+      description: 'Another awesome product',
+      imageUrl: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+      price: '$39.99',
+    },{
+      id: 4,
+      title: 'Product 2',
+      description: 'Another awesome product',
+      imageUrl: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+      price: '$39.99',
+    },
+    {
+      id: 5,
+      title: 'Product 2',
+      description: 'Another awesome product',
+      imageUrl: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+      price: '$39.99',
+    },
+  ];
   return (
-    <div className="form-container">
-      <h2>Multi-Step Form</h2>
-      {step === 1 && <Step1 data={formData} handleChange={handleChange} />}
-      {step === 2 && <Step2 data={formData} handleChange={handleChange} />}
-      {step === 3 && <Step3 data={formData} handleChange={handleChange} />}
-
-      <div className="button-group">
-        {step > 1 && <button onClick={prevStep}>Back</button>}
-        {step < 3 && <button onClick={nextStep}>Next</button>}
-        {step === 3 && <button type="submit" onClick={handleSubmit}>Submit</button>}
+    <>
+      <div className='App'>
+        <Products products={sampleProducts} />
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,0 +1,39 @@
+.products-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  .products-title {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .carousel-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    width: 100%;
+    padding: 20px 0;
+  }
+  
+  .carousel {
+    display: inline-flex;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    white-space: nowrap;
+  }
+  
+  .carousel > div {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+  
+  .product-card {
+    min-width: 250px;
+    max-width: 300px;
+    flex-shrink: 0 0 auto;
+  }
+  
