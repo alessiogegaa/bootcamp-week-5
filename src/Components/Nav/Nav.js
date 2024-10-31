@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { FaShoppingCart, FaMoon } from "react-icons/fa";
+import { FaShoppingCart, FaMoon, FaSun } from "react-icons/fa";
 import "./Nav.css";
 import { useCart } from "../CartContext/CartContext";
+import { useTheme } from "../ThemeContext/ThemeContext";
 
 const Nav = () => {
   const { totalCartQuantity } = useCart();
   const [cartQuantity, setCartQuantity] = useState(0);
-
+  const { theme, toggleTheme } = useTheme();
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCartQuantity(
@@ -14,7 +15,7 @@ const Nav = () => {
     );
   }, [totalCartQuantity]);
   return (
-    <div className="nav">
+    <div className="nav" >
       <ul className="nav-links">
         <li>
           <a href="/">Home</a>
@@ -31,7 +32,13 @@ const Nav = () => {
           className="icon-link"
           onClick={() => console.log("Toggle dark mode")}
         >
-          <FaMoon className="icon" title="Toggle Dark Mode" />
+           <button className="icon-link" onClick={toggleTheme}>
+          {theme === "light" ? (
+            <FaMoon className="icon" title="Toggle Dark Mode" />
+          ) : (
+            <FaSun className="icon" title="Toggle Light Mode" />
+          )}
+        </button>
         </button>
       </div>
     </div>

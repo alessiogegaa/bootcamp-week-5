@@ -39,7 +39,7 @@
 .product-description h1 {
   font-weight: 300;
   font-size: 52px;
-  color: #43484d;
+  color: var(--text-color);
   letter-spacing: -2px;
 }
 .product-description p {
@@ -57,7 +57,7 @@
 .product-price span {
   font-size: 26px;
   font-weight: 300;
-  color: #43474d;
+  color: var(--text-color);
   margin-right: 20px;
 }
 

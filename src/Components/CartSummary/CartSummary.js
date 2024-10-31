@@ -1,5 +1,6 @@
 import React from "react";
 import "./CartSummary.css";
+import { useNavigate } from "react-router-dom";
 
 const CartSummary = ({ cartItems }) => {
   const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -10,7 +11,7 @@ const CartSummary = ({ cartItems }) => {
   });
 
   const filteredCartItems = cartItems.filter((item) => cartMap[item.id] > 0);
-
+  const navigate = useNavigate();
   return (
     <div className="cartSummaryContainer">
       <h2>Your Cart</h2>
@@ -55,7 +56,8 @@ const CartSummary = ({ cartItems }) => {
           className="checkoutButton"
           onClick={() => {
             alert("Thank You for your purchase");
-            localStorage.clear();
+            localStorage.removeItem('cart');
+            navigate('/');
           }}
         >
           Proceed to Checkout

@@ -2,14 +2,14 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: var(--cart-background-color);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   .cartSummaryContainer h2 {
     font-size: 28px;
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 20px;
     text-align: center;
   }
@@ -41,13 +41,13 @@
   
   .cartItemDetails h3 {
     font-size: 18px;
-    color: #43484d;
+    color: var(--text-color);
     margin: 0;
   }
   
   .cartItemDetails p {
     font-size: 16px;
-    color: #86939e;
+    color: var(--text-color);
     margin: 5px 0;
   }
   
@@ -58,7 +58,7 @@
   
   .cartItemQuantity label {
     font-size: 14px;
-    color: #43484d;
+    color: var(--text-color);
     margin-right: 10px;
   }
   
@@ -73,7 +73,7 @@
   
   .emptyCartMessage {
     font-size: 16px;
-    color: #aaa;
+    color: var(--text-color);
     text-align: center;
     padding: 20px 0;
   }
@@ -84,7 +84,7 @@
   
   .cartSummaryFooter h3 {
     font-size: 24px;
-    color: #43484d;
+    color: var(--text-color);
     margin-bottom: 15px;
   }
   
@@ -93,7 +93,7 @@
     padding: 10px 20px;
     font-size: 18px;
     color: #fff;
-    background-color: #7dc855;
+    background-color: var(--button-background);
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -101,6 +101,6 @@
   }
   
   .checkoutButton:hover {
-    background-color: #64af3d;
+    background-color: var(--button-hover);
   }
   
