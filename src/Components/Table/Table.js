@@ -13,8 +13,10 @@ const Table = ({ data }) => {
             <th>Name</th>
             <th>Full Name</th>
             <th>Language</th>
+            <th>Stars</th>
             <th>Private</th>
             <th>Created At</th>
+            <th>Updated At</th>
           </tr>
         </thead>
         <tbody>
@@ -24,8 +26,10 @@ const Table = ({ data }) => {
               <td>{item.name}</td>
               <td>{item.full_name}</td>
               <td>{item.language}</td>
+              <td>{item.stargazers_count}</td>
               <td>{item.private ? 'Yes' : 'No'}</td>
               <td>{new Date(item.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
+              <td>{new Date(item.updated_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</td>
             </tr>
           ))}
         </tbody>
