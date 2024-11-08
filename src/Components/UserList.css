@@ -1,0 +1,26 @@
+.user-list-container {
+    margin: 0 auto;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-list {
+    list-style: none;
+    padding: 0;
+}
+
+.user-list-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.user-list-item p {
+    margin: 5px 0;
+    color: #333;
+}
